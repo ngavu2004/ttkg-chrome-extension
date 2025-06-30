@@ -343,28 +343,45 @@ async function waitForProcessing(totalWaitTime) {
         // Update progress and message
         const progressPercent = 70 + (elapsedTime / totalWaitTime) * 20; // 70% to 90%
         updateProgress(Math.round(progressPercent));
-        updateProcessingMessage(`Checking for graph... (${remainingMinutes} minutes remaining, attempt ${pollAttempts + 1}/${maxAttempts})`);
+        updateProcessingMessage(`Checking processing status... (${remainingMinutes} minutes remaining, attempt ${pollAttempts + 1}/${maxAttempts})`);
         
-        // Try to check if graph is ready
+        // Try to check processing status from backend API
         try {
-            const graphUrl = `${FRONTEND_URL}/graph/${currentFileId}`;
-            console.log(`🔍 Polling attempt ${pollAttempts + 1}/${maxAttempts}:`, graphUrl);
+            console.log(`🔍 Polling attempt ${pollAttempts + 1}/${maxAttempts}: Checking backend status`);
             
-            const response = await fetch(graphUrl, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+            const response = await fetch(`${API_BASE_URL}/get_saved_graph/${currentFileId}`);
+            
+            if (response.status === 404) {
+                // Still processing - this is expected
+                console.log(`⚠️ Graph still processing (attempt ${pollAttempts + 1}): 404 - not ready yet`);
+            } else if (response.ok) {
+                const data = await response.json();
+                console.log(`📊 Backend response (attempt ${pollAttempts + 1}):`, data);
+                
+                if (data.status === 'completed' && data.graph_data) {
+                    // Check if graph has content (nodes and relationships)
+                    const nodes = data.graph_data.nodes || [];
+                    const relationships = data.graph_data.edges || data.graph_data.relationships || [];
+                    
+                    console.log(`📈 Graph stats: ${nodes.length} nodes, ${relationships.length} relationships`);
+                    
+                    if (nodes.length > 0 || relationships.length > 0) {
+                        // Graph is ready with content!
+                        currentGraphData = data.graph_data;
+                        updateProgress(100);
+                        updateProcessingMessage('Graph generated successfully!');
+                        showGraphSection();
+                        return; // Exit the polling loop
+                    } else {
+                        console.log(`⚠️ Graph completed but empty (attempt ${pollAttempts + 1}): continuing to poll...`);
+                    }
+                } else if (data.status === 'error') {
+                    throw new Error(data.error || 'Failed to process file');
+                } else {
+                    console.log(`⚠️ Graph still processing (attempt ${pollAttempts + 1}): status = ${data.status}`);
                 }
-            });
-            
-            if (response.ok) {
-                // Graph is ready! Show success
-                updateProgress(100);
-                updateProcessingMessage('Graph generated successfully!');
-                showGraphSection();
-                return; // Exit the polling loop
             } else {
-                console.log(`⚠️ Graph not ready yet (attempt ${pollAttempts + 1}):`, response.status, response.statusText);
+                console.log(`⚠️ Backend error (attempt ${pollAttempts + 1}):`, response.status, response.statusText);
             }
         } catch (error) {
             console.log(`⚠️ Polling error (attempt ${pollAttempts + 1}):`, error.message);
