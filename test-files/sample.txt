@@ -1,0 +1,46 @@
+Sample Document for Knowledge Graph Testing
+
+This is a sample text document that demonstrates the capabilities of the Text to Knowledge Graph Chrome Extension. The extension can now process various document formats including PDF, DOC, DOCX, TXT, RTF, and Markdown files.
+
+Key Features:
+- Document Processing: The extension supports multiple document formats
+- Knowledge Extraction: It can extract concepts, entities, and relationships from text
+- Graph Generation: Creates interactive knowledge graphs from document content
+- File Size Limits: Documents can be up to 25MB in size
+- Real-time Processing: Shows progress during document analysis
+
+Supported Document Types:
+1. PDF Documents (.pdf)
+2. Microsoft Word Documents (.doc, .docx)
+3. Text Documents (.txt)
+4. Rich Text Documents (.rtf)
+5. Markdown Documents (.md)
+
+The extension works by:
+1. Uploading the document to secure cloud storage
+2. Processing the document content using AI algorithms
+3. Extracting key concepts and relationships
+4. Generating an interactive knowledge graph
+5. Providing a shareable link for collaboration
+
+This technology is particularly useful for:
+- Research papers and academic documents
+- Technical documentation and manuals
+- Business reports and presentations
+- Legal documents and contracts
+- Educational materials and textbooks
+
+The knowledge graph visualization helps users:
+- Understand complex relationships between concepts
+- Discover hidden connections in the content
+- Navigate large documents more efficiently
+- Share insights with team members
+- Create interactive presentations
+
+For optimal results, ensure your documents are:
+- Well-structured with clear headings
+- Written in a language supported by the AI model
+- Under the maximum file size limit
+- In a supported file format
+
+The extension integrates seamlessly with existing workflows and provides a modern, intuitive interface for document analysis and knowledge discovery. 

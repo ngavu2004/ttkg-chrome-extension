@@ -1,0 +1,41 @@
+{
+  "name": "ttkg-chrome-extension",
+  "version": "1.0.0",
+  "description": "Chrome Extension for Text to Knowledge Graph - Upload documents and source code files to generate interactive knowledge graphs",
+  "main": "popup.js",
+  "scripts": {
+    "build": "echo 'No build process required for Chrome Extension'",
+    "dev": "echo 'Load extension in Chrome with Developer mode enabled'",
+    "test": "echo 'Manual testing required for Chrome Extension'",
+    "lint": "echo 'Add ESLint configuration if needed'",
+    "package": "echo 'Extension is ready to be loaded in Chrome'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "knowledge-graph",
+    "document-analysis",
+    "source-code",
+    "code-analysis",
+    "visualization"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ttkg-chrome-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/ttkg-chrome-extension/issues"
+  },
+  "homepage": "https://github.com/yourusername/ttkg-chrome-extension#readme",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.8.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 88"
+  ]
+} 

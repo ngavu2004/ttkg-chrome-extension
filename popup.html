@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Knowledge Graph</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="icon">🧠</span>
+                Text to Knowledge Graph
+            </h1>
+            <p class="subtitle">Upload documents and generate knowledge graphs</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Upload Section -->
+            <div id="upload-section" class="section">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Upload Your Document</h3>
+                        <p>Drag and drop a file here or click to browse</p>
+                        <p class="file-types">Supports: PDF, DOC, DOCX, TXT, RTF, MD, and source code files • Max 25MB</p>
+                        <input type="file" id="file-input" accept=".pdf,.doc,.docx,.txt,.rtf,.md,.js,.ts,.py,.java,.cpp,.c,.cs,.php,.rb,.go,.rs,.swift,.kt,.jsx,.tsx,.vue,.svelte" hidden>
+                        <button class="btn btn-primary btn-lg" id="upload-btn">Browse Files</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing Section -->
+            <div id="processing-section" class="section hidden">
+                <div class="processing-content">
+                    <div class="spinner"></div>
+                    <h3>Processing Your Document</h3>
+                    <p id="processing-message">Uploading and analyzing your document...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 text-center mt-4">
+                        Processing large documents can take several minutes. Thank you for your patience!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div id="error-section" class="section hidden">
+                <div class="error-content">
+                    <div class="error-icon">❌</div>
+                    <h3>Error</h3>
+                    <p id="error-message">Something went wrong</p>
+                    <button class="btn btn-primary" id="retry-btn">Try Again</button>
+                </div>
+            </div>
+
+            <!-- Graph Section -->
+            <div id="graph-section" class="section hidden">
+                <div class="graph-content">
+                    <div class="graph-header">
+                        <h3>Knowledge Graph Generated</h3>
+                        <div class="graph-stats">
+                            <span id="node-count">0 nodes</span>
+                            <span id="relationship-count">0 relationships</span>
+                        </div>
+                    </div>
+                    
+                    <!-- File Info Display -->
+                    <div class="file-info" id="file-info">
+                        <div class="file-info-left">
+                            <div class="file-icon">📄</div>
+                            <div class="file-details">
+                                <div class="file-name" id="file-name">Document.pdf</div>
+                                <div class="file-size" id="file-size">2.5 MB</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="graph-actions">
+                        <button class="btn btn-primary btn-lg" id="view-graph-btn">
+                            <span>🧠</span>
+                            View Graph
+                        </button>
+                        <button class="btn btn-secondary" id="share-btn">
+                            <span>🔗</span>
+                            Share
+                        </button>
+                        <button class="btn btn-ghost" id="new-file-btn">
+                            <span>📁</span>
+                            Upload New File
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="status" id="status">Ready to upload</div>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 

@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Text to Knowledge Graph",
+  "version": "1.0.0",
+  "description": "Upload documents and source code files to generate interactive knowledge graphs from their contents",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "contextMenus",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://rj66xwfu1d.execute-api.us-east-1.amazonaws.com/*",
+    "https://text-to-knowledge-graph-frontend.vercel.app/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Text to Knowledge Graph",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["graph-viewer.html", "graph-viewer.js", "graph-viewer.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+} 
