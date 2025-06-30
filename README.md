@@ -6,7 +6,6 @@ A Chrome extension that allows you to upload documents and source code files to 
 
 - **File Upload**: Support for multiple file types including:
   - **Documents**: PDF, DOC, DOCX, TXT, RTF, MD (max 25MB)
-  - **Source Code**: JS, TS, Python, Java, C++, C#, PHP, Ruby, Go, Rust, Swift, Kotlin, JSX, TSX, Vue, Svelte (max 10MB)
 - **Smart Processing**: Intelligent polling system that waits for file processing completion
 - **Frontend Integration**: Seamlessly redirects to the frontend for graph visualization
 - **Context Menu Integration**: Right-click on files to upload them directly
