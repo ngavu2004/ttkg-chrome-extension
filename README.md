@@ -1,6 +1,6 @@
 # Text-to-Knowledge Graph Chrome Extension
 
-A Chrome extension that allows you to upload documents and source code files to generate interactive knowledge graphs. The extension integrates with the [Text-to-Knowledge Graph Frontend](https://text-to-knowledge-graph-frontend.vercel.app) for visualization.
+A Chrome extension that allows you to upload documents to generate interactive knowledge graphs. The extension integrates with the [Text-to-Knowledge Graph Frontend](https://text-to-knowledge-graph-frontend.vercel.app) for visualization.
 
 ## Features
 
