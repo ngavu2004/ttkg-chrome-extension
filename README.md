@@ -50,22 +50,6 @@ A Chrome extension that allows you to upload documents and source code files to 
 - Rich Text (.rtf)
 - Markdown (.md)
 
-**Source Code (max 10MB)**:
-- JavaScript (.js, .jsx)
-- TypeScript (.ts, .tsx)
-- Python (.py)
-- Java (.java)
-- C/C++ (.c, .cpp)
-- C# (.cs)
-- PHP (.php)
-- Ruby (.rb)
-- Go (.go)
-- Rust (.rs)
-- Swift (.swift)
-- Kotlin (.kt)
-- Vue (.vue)
-- Svelte (.svelte)
-
 ## Technical Details
 
 ### API Integration
